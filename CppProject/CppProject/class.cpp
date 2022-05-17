@@ -17,11 +17,12 @@ int checkInt(char str[], int sign) {
 				flag = 1;
 
 		if (flag == 0 && str[0] != '0')
-			break;
+			return stoi(str);
 		else
 			cout << "Please enter the valid value." << endl;
 	}
-	return stoi(str);
+	return -1;
+	
 }
 void backgroundTop() {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11 | (11 << 4));
@@ -78,10 +79,12 @@ int getUserWantList::selectIncludeOrNot(char str[]) {
 
 
 	
-
-	while (num != 4 && num != 1 && num != 2 && num != 3) {
+	while (TRUE) {
 		num = checkInt(str, 1);
-		cout << "Please enter the valid value." << endl;
+		if (num != 1 && num != 2 && num != 3 && num != 4)
+			cout << "Please enter the valid value." << endl;
+		else
+			break;
 	}
 	return num;
 }

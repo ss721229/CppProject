@@ -26,7 +26,10 @@ int main() {
 
 	while (num != 1) {
 		num = obj->selectIncludeOrNot(Nchar);
+
 		if (num == 1) {
+			system("cls");
+			backgroundTop();
 			cout << endl << "Currnt list" << endl;
 			for (int i = 0; i < Nint; i++)
 				obj[i].putdata();
@@ -37,7 +40,7 @@ int main() {
 			for (int i = 0; i < Nint; i++)
 				obj[i].getIncludeWordList(word);
 		}
-		else if (num == 3) { // num = 2
+		else if (num == 3) {
 			cout << "Enter not contain word: ";
 			cin >> word;
 			for (int i = 0; i < Nint; i++)
@@ -45,12 +48,14 @@ int main() {
 		}
 		else { // num = 4
 			system("cls");
+			backgroundTop();
 			cout << endl << "Currnt list" << endl;
 			for (int i = 0; i < Nint; i++)
 				obj[i].putdata();
 			cout << endl;
 			system("PAUSE");
 			system("cls");
+			backgroundTop();
 		}
 	}
 
