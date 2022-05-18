@@ -25,6 +25,8 @@ int checkInt(char str[], int sign) {
 	
 }
 void backgroundTop() {
+	cout << "\n\n\n\n";
+	/*
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11 | (11 << 4));
 	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
 	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
@@ -33,6 +35,7 @@ void backgroundTop() {
 	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
 	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | (0 << 4));
+	*/
 }
 void intro() {
 	system(" mode con: lines=40 cols=80 | title Find List");
@@ -40,9 +43,19 @@ void intro() {
 
 	cout << setw(44) << "Find List\n" << endl;
 	cout << setw(63) << "This is a program that finds the list you want.\n" << endl;
-	cout << setw(117) << "式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式忖" << endl;
+	cout << setw(117) << "式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式" << endl;
 	cout << setw(52) << "How to use this program" << endl;
-	cout << setw(96) << "式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式戎" << endl;
+	cout << setw(96) << "式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式" << endl << endl;
+	cout << setw(38) << "1. Enter a list size" << endl << endl;
+	cout << setw(33) << "2. Enter a list" << endl << endl;
+	cout << setw(51) << "3. Choose function and execute it" << endl << endl;
+	cout << setw(70) << "enter 1, user can show current listand exit program" << endl << endl;
+	cout << setw(69) << "enter 2, user can enter the wordand leaves an item" << endl;
+	cout << setw(59) << "containing the word on the list" << endl << endl;
+	cout << setw(69) << "enter 3, user can enter the wordand leaves an item" << endl;
+	cout << setw(66) << "don＊t containing the word on the list" << endl << endl;
+	cout << setw(66) << "enter 4, user can show current listand continue" << endl;
+	cout << setw(40) << "this program" << endl << endl;
 	system("PAUSE");
 	system("cls");
 	backgroundTop();

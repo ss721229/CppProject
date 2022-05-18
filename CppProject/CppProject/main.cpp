@@ -9,7 +9,6 @@ int main() {
 
 	intro();
 
-
 	Nint = checkInt(Nchar, 0);
 	getchar();
 	cout << endl;
@@ -31,7 +30,7 @@ int main() {
 			system("cls");
 			backgroundTop();
 			cout << endl << "Currnt list" << endl;
-			for (int i = 0; i < Nint; i++)
+			for (int i = 0; i < Nint; i++) 
 				obj[i].putdata();
 		}
 		else if (num == 2) {
@@ -52,6 +51,7 @@ int main() {
 			cout << endl << "Currnt list" << endl;
 			for (int i = 0; i < Nint; i++)
 				obj[i].putdata();
+
 			cout << endl;
 			system("PAUSE");
 			system("cls");
