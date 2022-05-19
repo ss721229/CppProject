@@ -2,21 +2,24 @@
 #pragma warning(disable:4996)
 using namespace std;
 
-int checkInt(char str[], int sign) {
+int checkInt(char str[], int sign) { // Only get number, not minus or char value.
 	int flag;
 
-	while (1) { // Only get number, not minus or char value.
+	while (1) { 
 		flag = 0;
+
 		if (sign == 0)
 			cout << "Enter list's count: ";
 		else // sign = 1
 			cout << "Enter number: ";
+
 		cin >> str;
+
 		for (int i = 0; i < strlen(str); i++)
 			if (isdigit(str[i]) == 0)
 				flag = 1;
 
-		if (flag == 0 && str[0] != '0')
+		if (flag == 0 && str[0] != '0') // if str isn't number, user can show error and enter word again.
 			return stoi(str);
 		else
 			cout << "Please enter the valid value." << endl;
@@ -37,7 +40,7 @@ void backgroundTop() {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | (0 << 4));
 	*/
 }
-void intro() {
+void intro() { // show first
 	system(" mode con: lines=40 cols=80 | title Find List");
 	backgroundTop();
 
@@ -72,7 +75,7 @@ void getUserWantList::getdata(char inputData[]) {
 
 void getUserWantList::putdata() {
 	if (data != NULL) {
-		cout <<"- " << data << endl;
+		cout << "- " << data << endl;
 	}
 }
 
@@ -92,8 +95,9 @@ int getUserWantList::selectIncludeOrNot(char str[]) {
 
 
 	
-	while (TRUE) {
+	while (TRUE) { // 잘못된 입력(문자5개 이상)을 하고 1을 입력했을 때 오류
 		num = checkInt(str, 1);
+		getchar();
 		if (num != 1 && num != 2 && num != 3 && num != 4)
 			cout << "Please enter the valid value." << endl;
 		else
@@ -105,13 +109,15 @@ int getUserWantList::selectIncludeOrNot(char str[]) {
 void getUserWantList::getIncludeWordList(char word[]) {
 	int cntSameSpell = 0, checkWordFlag = 0;
 
-	for (int i = 0; i < strlen(data); i++) {
-		for (int j = 0; j < strlen(word); j++)
-			if (data[i + j] == word[j])
-				cntSameSpell++;
-		if (cntSameSpell == strlen(word))
-			checkWordFlag = 1;
-		cntSameSpell = 0;
+	if (data != NULL) {
+		for (int i = 0; i < strlen(data); i++) {
+			for (int j = 0; j < strlen(word); j++)
+				if (data[i + j] == word[j])
+					cntSameSpell++;
+			if (cntSameSpell == strlen(word))
+				checkWordFlag = 1;
+			cntSameSpell = 0;
+		}
 	}
 	if (!checkWordFlag)
 		data = NULL;
@@ -121,13 +127,15 @@ void getUserWantList::getIncludeWordList(char word[]) {
 void getUserWantList::getNotIncludeWordList(char word[]) {
 	int cntSameSpell = 0, checkWordFlag = 0;
 
-	for (int i = 0; i < strlen(data); i++) {
-		for (int j = 0; j < strlen(word); j++)
-			if (data[i + j] == word[j])
-				cntSameSpell++;
-		if (cntSameSpell == strlen(word))
-			checkWordFlag = 1;
-		cntSameSpell = 0;
+	if (data != NULL) {
+		for (int i = 0; i < strlen(data); i++) {
+			for (int j = 0; j < strlen(word); j++)
+				if (data[i + j] == word[j])
+					cntSameSpell++;
+			if (cntSameSpell == strlen(word))
+				checkWordFlag = 1;
+			cntSameSpell = 0;
+		}
 	}
 	if (checkWordFlag)
 		data = NULL;
