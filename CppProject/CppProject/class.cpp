@@ -10,8 +10,12 @@ int checkInt(char str[], int sign) { // Only get number, not minus or char value
 
 		if (sign == 0)
 			cout << "Enter the number of items: ";
-		else // sign = 1
+		else if(sign == 1)
 			cout << "Enter number: ";
+		else if(sign == 2)
+			cout << "Enter string length(less than or equal): ";
+		else if(sign==3)
+			cout << "Enter string length(more than or equal): ";
 
 		cin >> str;
 
@@ -48,8 +52,8 @@ void intro() { // show first
 	cout << setw(114) << "──────────────────────────────────────────────────" << endl;
 	cout << setw(51) << "How to use this program" << endl;
 	cout << setw(93) << "────────────────────────────────────" << endl << endl;
-	cout << setw(34) << "1. Enter a list size" << endl << endl;
-	cout << setw(29) << "2. Enter a list" << endl << endl;
+	cout << setw(36) << "1. Enter the list size" << endl << endl;
+	cout << setw(28) << "2. Enter items" << endl << endl;
 	cout << setw(47) << "3. Choose function and execute it" << endl << endl;
 	cout << setw(66) << "Enter 1, user can show current listand exit program" << endl << endl;
 	cout << setw(62) << "Enter 2, user can enter the wordand leave items" << endl;
@@ -67,6 +71,17 @@ void intro() { // show first
 	backgroundTop();
 }
 
+void programFunc() {
+	cout << setw(117) << "┌──────────────────────────────────────────────────┐" << endl;
+	cout << setw(15) << "│" << setw(44) << "Enter the number you want to perform." << setw(8) << "│" << endl;
+	cout << setw(15) << "│" << setw(49) << "1. You can exit program and show current list." << setw(3) << "│" << endl;
+	cout << setw(15) << "│" << setw(42) << "2. Find items that contain enterd word." << setw(10) << "│" << endl;
+	cout << setw(15) << "│" << setw(46) << "3. Find items that not contain enterd word." << setw(6) << "│" << endl;
+	cout << setw(15) << "│" << setw(49) << "4. Find Items are less than or equal to number" << setw(3) << "│" << endl;
+	cout << setw(15) << "│" << setw(49) << "5. Find Items are more than or equal to number" << setw(3) << "│" << endl;
+	cout << setw(15) << "│" << setw(23) << "6. Show current list" << setw(29) << "│" << endl;
+	cout << setw(117) << "└──────────────────────────────────────────────────┘" << endl;
+}
 
 //getUserWantList function
 void getUserWantList::getdata(char inputData[]) {
@@ -81,7 +96,7 @@ void getUserWantList::putdata() {
 		cout << "- " << data << endl;
 	}
 }
-char* getUserWantList::saveListOnTheFile() {
+char* getUserWantList::returnDataStr() {
 	return data;
 }
 
@@ -91,19 +106,9 @@ void getUserWantList::dataFree() {
 
 int getUserWantList::selectIncludeOrNot(char str[]) {
 	int num = 0;
-	cout << setw(117) << "┌──────────────────────────────────────────────────┐" << endl;
-	cout << setw(15) << "│" << setw(44) << "Enter the number you want to perform." << setw(8) << "│" << endl;
-	cout << setw(15) << "│" << setw(49) << "1. You can exit program and show current list." << setw(3) << "│" << endl; // 나중에 파일에 저장하는 걸로 수정?
-	cout << setw(15) << "│" << setw(42) << "2. Find items that contain enterd word." << setw(10) << "│" << endl;
-	cout << setw(15) << "│" << setw(46) << "3. Find items that not contain enterd word." << setw(6) << "│" << endl;
-	cout << setw(15) << "│" << setw(49) << "4. Find Items are less than or equal to number" << setw(3) << "│" << endl;
-	cout << setw(15) << "│" << setw(49) << "5. Find Items are more than or equal to number" << setw(3) << "│" << endl;
-	cout << setw(15) << "│" << setw(23) << "6. Show current list" << setw(29) << "│" << endl;
-	cout << setw(117) << "└──────────────────────────────────────────────────┘" << endl;
-
-
+	programFunc();
 	
-	while (TRUE) { // 잘못된 입력(문자5개 이상)을 하고 1을 입력했을 때 오류
+	while (TRUE) {
 		num = checkInt(str, 1);
 		getchar();
 		if (num != 1 && num != 2 && num != 3 && num != 4 && num != 5 && num != 6)
