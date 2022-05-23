@@ -4,6 +4,7 @@
 #include<string>
 #include<iostream>
 #include<iomanip>
+#include<fstream>
 #include<Windows.h>
 
 class getUserWantList {
@@ -13,11 +14,13 @@ public:
 	void getdata(char inputData[]);
 	void putdata();
 	void dataFree();
+	char* saveListOnTheFile();
 	int selectIncludeOrNot(char str[]);
 
 	void getIncludeWordList(char word[]);
 	void getNotIncludeWordList(char word[]);
-
+	void getStrlenLessOrEqual(char word[], int numStrlen);
+	void getStrlenMoreOrEqual(char word[], int numStrlen);
 
 };
 

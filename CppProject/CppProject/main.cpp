@@ -8,9 +8,11 @@ int main() {
 	// word: word user enter(find items containing or not)
 	// Nchar: variarion to check number, not word(translate int)
 	// Nint: list number, num: function number
+	// ofstream: 
 	getUserWantList* obj = NULL; 
 	char inputData[50], word[20], Nchar[5]; 
-	int Nint, num = 0; 
+	int Nint, num = 0, numStrlen;
+	ofstream listFile("test.txt");
 
 	intro();
 
@@ -38,6 +40,16 @@ int main() {
 			for (int i = 0; i < Nint; i++) 
 				obj[i].putdata();
 
+			//파일 저장
+			if (!listFile) {
+				cout << "File is not opened.";
+				exit(-1);
+			}
+			for (int i = 0; i < Nint; i++)
+				listFile << obj[i].saveListOnTheFile() << endl;
+			listFile.close();
+			
+
 			for (int i = 0; i < Nint; i++) // free dynamic allocation
 				obj[i].dataFree();
 			delete[] obj;
@@ -56,18 +68,30 @@ int main() {
 			for (int i = 0; i < Nint; i++)
 				obj[i].getNotIncludeWordList(word);
 		}
-		else { // num = 4, print current list
+		else if (num == 4) {
+			cout << "Enter string length(less than or equal): ";
+			cin >> numStrlen;
+			for (int i = 0; i < Nint; i++)
+				obj[i].getStrlenLessOrEqual(word, numStrlen);
+		}
+		else if (num == 5) {
+			cout << "Enter string length(more than or equal): ";
+			cin >> numStrlen;
+			for (int i = 0; i < Nint; i++)
+				obj[i].getStrlenMoreOrEqual(word, numStrlen);
+		}
+		else { // num = 6, print current list
 			system("cls");
 			backgroundTop();
 			cout << endl << "Currnt list" << endl;
 			for (int i = 0; i < Nint; i++)
 				obj[i].putdata();
 
-			cout << endl;
-			system("PAUSE");
-			system("cls");
-			backgroundTop();
 		}
+		cout << endl;
+		system("PAUSE");
+		system("cls");
+		backgroundTop();
 	}
 
 	return 0;
