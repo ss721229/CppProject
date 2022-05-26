@@ -8,11 +8,11 @@ int main() {
 	// word: word user enter(find items containing or not)
 	// Nchar: variarion to check number, not word(translate int)
 	// Nint: list number, num: function number, cntToCheckItemExist: after using function, check items exist on the list
-	// ofstream: 
+	// ofstream: to save the list on the txt file
 	getUserWantList* obj = NULL;
 	char inputData[50], word[20], Nchar[5];
 	int Nint, num = 0, numStrlen, cntToCheckItemExist = 0;
-	ofstream listFile("test.txt");
+	ofstream listFile;
 
 	intro();
 
@@ -25,6 +25,8 @@ int main() {
 		cout << "Error" << endl;
 		return -1;
 	}
+	system("cls");
+	backgroundTop();
 
 	cout << "Enter your list ( number: " << Nint << " )" << endl;
 	for (int i = 0; i < Nint; i++) // get list
@@ -40,7 +42,8 @@ int main() {
 			for (int i = 0; i < Nint; i++)
 				obj[i].putdata();
 
-			//파일 저장
+			//save the list
+			listFile.open("List.txt");
 			if (!listFile) {
 				cout << "File is not opened.";
 				exit(-1);
@@ -56,6 +59,8 @@ int main() {
 				obj[i].dataFree();
 			delete[] obj;
 
+			cout << "\n" << "Exit program" << endl;
+			system("PAUSE");
 			exit(0);
 		}
 		else if (num == 2) { // get a list containing entered word

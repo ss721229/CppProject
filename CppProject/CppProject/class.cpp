@@ -32,16 +32,6 @@ int checkInt(char str[], int sign) { // Only get number, not minus or char value
 }
 void backgroundTop() {
 	cout << "\n\n\n\n";
-	/*
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11 | (11 << 4));
-	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
-	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
-	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
-	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
-	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
-	cout << "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 | (0 << 4));
-	*/
 }
 void intro() { // show first
 	system(" mode con: lines=40 cols=80 | title Find List");
@@ -55,7 +45,7 @@ void intro() { // show first
 	cout << setw(36) << "1. Enter the list size" << endl << endl;
 	cout << setw(28) << "2. Enter items" << endl << endl;
 	cout << setw(47) << "3. Choose function and execute it" << endl << endl;
-	cout << setw(66) << "Enter 1, user can show current listand exit program" << endl << endl;
+	cout << setw(67) << "Enter 1, user can save current list and exit program" << endl << endl;
 	cout << setw(62) << "Enter 2, user can enter the wordand leave items" << endl;
 	cout << setw(55) << "containing the word on the list" << endl << endl;
 	cout << setw(63) << "Enter 3, user can enter the word and leave items" << endl;
@@ -64,7 +54,7 @@ void intro() { // show first
 	cout << setw(65) << "whose string length is less than or equal" << endl << endl;
 	cout << setw(65) << "Enter 5, user can enter the number and leave items" << endl;
 	cout << setw(65) << "whose string length is more than or equal" << endl << endl;
-	cout << setw(62) << "enter 6, user can show current listand continue" << endl;
+	cout << setw(63) << "enter 6, user can show current list and continue" << endl;
 	cout << setw(36) << "this program" << endl << endl;
 	system("PAUSE");
 	system("cls");
@@ -74,7 +64,7 @@ void intro() { // show first
 void programFunc() {
 	cout << setw(117) << "忙式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式忖" << endl;
 	cout << setw(15) << "弛" << setw(44) << "Enter the number you want to perform." << setw(8) << "弛" << endl;
-	cout << setw(15) << "弛" << setw(49) << "1. You can exit program and show current list." << setw(3) << "弛" << endl;
+	cout << setw(15) << "弛" << setw(49) << "1. You can exit program and save current list." << setw(3) << "弛" << endl;
 	cout << setw(15) << "弛" << setw(42) << "2. Find items that contain enterd word." << setw(10) << "弛" << endl;
 	cout << setw(15) << "弛" << setw(46) << "3. Find items that not contain enterd word." << setw(6) << "弛" << endl;
 	cout << setw(15) << "弛" << setw(49) << "4. Find Items are less than or equal to number" << setw(3) << "弛" << endl;
